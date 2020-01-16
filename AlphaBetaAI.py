@@ -2,6 +2,8 @@ import sys
 
 import chess
 
+from ChessGame import evaluate
+
 
 class AlphaBetaAI:
     def __init__(self, is_ai_white: bool, depth=3):
@@ -26,7 +28,7 @@ class AlphaBetaAI:
 
     def minimax(self, depth, board, alpha, beta, is_maximizing):
         if depth == 0:
-            value = self.evaluate(board)
+            value = evaluate(board)
             return value if self.is_white else -value
 
         legal_moves = board.legal_moves
@@ -56,32 +58,3 @@ class AlphaBetaAI:
                     break
                 ##########
             return best_move
-
-    def evaluate(self, board):
-        overall_value = 0
-        for i in range(63):
-            piece = board.piece_at(i)
-            if piece is not None:  # todo: piece to piece type
-                value = self.get_piece_value(piece)
-                if piece.color:  # todo: I changed it from + to -
-                    overall_value += value
-                else:
-                    overall_value -= value
-        return overall_value
-
-    def get_piece_value(self, piece):
-        piece_name = str(piece)
-        value = 0
-        if piece_name == "P" or piece_name == "p":
-            value = 100
-        if piece_name == "N" or piece_name == "n":
-            value = 320
-        if piece_name == "B" or piece_name == "b":
-            value = 330
-        if piece_name == "R" or piece_name == "r":
-            value = 500
-        if piece_name == "Q" or piece_name == "q":
-            value = 900
-        if piece_name == 'K' or piece_name == 'k':
-            value = 20000
-        return value

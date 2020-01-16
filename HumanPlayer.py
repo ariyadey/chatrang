@@ -7,7 +7,8 @@ class HumanPlayer:
               "For example, d2d4 moves the piece at d2 to d4.")
         pass
 
-    def choose_move(self, board):
+    @staticmethod
+    def choose_move(board):
         uci_move = None
         while True:
             human_move = input("Please enter your move: ")

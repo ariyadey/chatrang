@@ -2,12 +2,15 @@ import random
 from time import sleep
 
 
-class RandomAI():
+class RandomAI:
     def __init__(self):
         pass
 
-    def choose_move(self, board):
+    @staticmethod
+    def choose_move(board):
         sleep(1)
-        move = random.choice(board.legal_moves)
-        print("Random AI recommends move " + str(move))
-        return move
+        legal_moves = list(board.legal_moves)
+        if legal_moves:
+            move = random.choice(legal_moves)  # todo: game is over.
+            print("Random AI recommends move " + str(move))
+            return move
