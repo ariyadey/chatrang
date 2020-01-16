@@ -40,7 +40,7 @@ class MinimaxAI:
 
         legal_moves = board.legal_moves
 
-        # Go deeper recursively
+        # Is it my turn, or my opponent's turn? Maximize or Minimize?
         if is_maximizing:
             best_move = -sys.maxsize
             for movement in legal_moves:
