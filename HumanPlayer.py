@@ -9,7 +9,6 @@ class HumanPlayer:
 
     @staticmethod
     def choose_move(board):
-        uci_move = None
         while True:
             human_move = input("Please enter your move: ")
             try:
@@ -20,5 +19,6 @@ class HumanPlayer:
 
             if uci_move not in board.legal_moves:
                 print("An illegal move; try again!")
+                continue
 
-        return uci_move
+            return uci_move

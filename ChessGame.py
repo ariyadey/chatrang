@@ -1,3 +1,9 @@
+"""
+This class manages the implementation of chess
+It handles how to communicate with AI algorithms
+It's an interface between AI algorithms and the user
+"""
+
 import chess
 
 
@@ -14,14 +20,25 @@ class ChessGame:
         return board_str + "\n" + move_str + "\n"
 
     def make_move(self):
-        player = self.players[1 - int(self.board.turn)]
-        # todo: implementation
-        move = player.choose_move(self.board)
+        player = self.players[1 - int(self.board.turn)]  # Switch the turn
+        move = player.choose_move(self.board)  # Call AI functions or get user movement
         if move:
-            self.board.push(move)
+            self.board.push(move)  # Make the movement
 
-    def is_game_over(self):
-        return self.board.is_game_over()
+
+# Evaluation functions:
+
+def evaluate(board):
+    overall_value = 0
+    for i in range(63):  # Iterate aver all the squares of the board
+        piece = board.piece_at(i)
+        if piece is not None:  # Is square empty?
+            value = get_piece_value(piece)
+            if piece.color:  # Am I white or black?
+                overall_value += value
+            else:
+                overall_value -= value
+    return overall_value
 
 
 def get_piece_value(piece):  # todo: piece to piece type
@@ -38,16 +55,3 @@ def get_piece_value(piece):  # todo: piece to piece type
         return 900
     if piece_name == 'K' or piece_name == 'k':
         return 20000
-
-
-def evaluate(board):
-    overall_value = 0
-    for i in range(63):
-        piece = board.piece_at(i)
-        if piece is not None:  # todo: piece to piece type
-            value = get_piece_value(piece)
-            if piece.color:  # todo: I changed it from + to -
-                overall_value += value
-            else:
-                overall_value -= value
-    return overall_value
