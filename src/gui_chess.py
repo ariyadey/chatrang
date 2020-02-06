@@ -11,9 +11,9 @@ from PyQt5 import QtSvg
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QApplication
 
-from AlphaBetaAI import AlphaBetaAI
-from ChessGame import ChessGame
-from RandomAI import RandomAI
+from src.AlphaBetaAI import AlphaBetaAI
+from src.ChessGame import ChessGame
+from src.RandomAI import RandomAI
 
 
 class ChessGui:

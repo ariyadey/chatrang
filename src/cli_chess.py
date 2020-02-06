@@ -2,9 +2,9 @@
 Use this class to play with AI through Terminal
 """
 
-from ChessGame import ChessGame
-from HumanPlayer import HumanPlayer
-from RandomAI import RandomAI
+from src.ChessGame import ChessGame
+from src.HumanPlayer import HumanPlayer
+from src.RandomAI import RandomAI
 
 white_player = HumanPlayer
 black_player = RandomAI

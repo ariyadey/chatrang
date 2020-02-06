@@ -2,7 +2,7 @@ import sys
 
 import chess
 
-from ChessGame import evaluate
+from src.ChessGame import evaluate
 
 
 # It's just as smart as Minimax, but it thinks faster and ignores nonsense nodes (moves)

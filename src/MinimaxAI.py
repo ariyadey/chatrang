@@ -2,7 +2,7 @@ import sys
 
 import chess
 
-from ChessGame import evaluate
+from src.ChessGame import evaluate
 
 
 # Let's choose the best move according to Minimax tree and evaluation functions
